@@ -51,6 +51,11 @@ extension Droplet {
             return try self.view.make("index.leaf")
         }
         
+        get("index.html") { request in
+            return try self.view.make("welcome.html")
+        }
+        
+        
         // template
         get("template") { request in
             return try self.view.make("welcome", [
