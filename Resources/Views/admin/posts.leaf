@@ -1,0 +1,22 @@
+#extend("admin/base")
+
+#export("page-title") { Posts }
+#export("content") {
+<table class="pure-table" width="100%">
+    <thead>
+        <tr>
+            <th>标题</th>
+            <th width="20%">日期</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        #loop(posts, "post") {
+        <tr>
+<td><a href="/admin/edit-post/#(post.id)">#(post.title)</a></td>
+            <td>#(post.date)</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

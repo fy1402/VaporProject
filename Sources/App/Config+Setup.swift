@@ -1,4 +1,6 @@
 import FluentProvider
+import MySQLProvider
+import AuthProvider
 
 extension Config {
     public func setup() throws {
@@ -13,11 +15,16 @@ extension Config {
     /// Configure providers
     private func setupProviders() throws {
         try addProvider(FluentProvider.Provider.self)
+        try addProvider(MySQLProvider.Provider.self)
+        try addProvider(AuthProvider.Provider.self)
     }
     
     /// Add all models that should have their
     /// schemas prepared before the app boots
     private func setupPreparations() throws {
-        preparations.append(Post.self)
+//        preparations.append(Post.self)
+//        preparations.append(Pet.self)
+        preparations.append(ExampleUser.self)
+        preparations.append(ExampleToken.self)
     }
 }
